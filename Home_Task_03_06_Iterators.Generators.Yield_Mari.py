@@ -36,8 +36,8 @@ class Country_iter:
 countries = Country_iter('countries.json')
 countries.write_wiki_link()
 
-for itrm in countries:
-    print(itrm)
+# for item in countries:
+#     print(item)
 
 # Задача 2. Написать генератор, который принимает путь к файлу. При каждой итерации возвращает md5 хеш каждой строки файла.
 
@@ -49,5 +49,5 @@ def md5_generator(path):
         for string in strings:
             yield hashlib.md5(string)
 
-# for string in md5_generator('countries.json'):
-#     print(string.hexdigest())
+for string in md5_generator('countries.json'):
+    print(string.hexdigest())

@@ -1,7 +1,4 @@
 import json
-import hashlib
-import shutil
-
 
 class Countries_gen:
     def __init__(self, path):
@@ -27,10 +24,13 @@ class Countries_gen:
             raise StopIteration
 
 
-my_iter = Countries_gen('countries.json')
-for item in my_iter:
-    pass
+# my_iter = Countries_gen('countries.json')
+# for item in my_iter:
+#     pass
 # ____________________________________________________Задание 2__________________________________________________
+import hashlib
+import shutil
+
 shutil.copyfile(r'links.txt', r'copy_links.txt') #Создаю копию так как 2-ое задание выполняется по умолчанию на файле из первого задания "links.txt"
 
 def generator_md5(path='links.txt'):
@@ -54,3 +54,22 @@ for md5_item, data_item in my_gener:
     print(md5_item, data_item)
     with open('md5.txt', 'a', encoding='utf-8') as f:
         f.write('{} - {}\n'.format(md5_item, data_item))
+
+
+
+# _____________Вариант Маши_______________________
+
+# def md5_generator(path='links.txt'):
+#     with open(path, 'rb') as file:
+#         strings = file.readlines()
+#         # print(type(strings))
+#         for string in strings:
+#             yield hashlib.md5(string)
+# #
+# for string in md5_generator('countries.json'):
+#     print(string.hexdigest())
+#
+# # string = md5_generator('links.txt')
+# # print(string.__next__().hexdigest())
+# # print(string.__next__().hexdigest())
+# # print(string.__next__().hexdigest())

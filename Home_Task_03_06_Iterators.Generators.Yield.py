@@ -10,8 +10,8 @@ class Countries_gen:
             # print(self.data)
             self.data = [countri['name']['common'] for countri in self.data]
             self.i = -1
-            print(self.data)
-            print(len(self.data))
+            # print(self.data)
+            # print(len(self.data))
 
     def __iter__(self):
         return self
@@ -22,7 +22,7 @@ class Countries_gen:
         if self.i < len(self.data):
             with open('links.txt', 'a', encoding='utf-8') as f:
                 f.write('{} - https://en.wikipedia.org/wiki/{}\n'.format(self.data[self.i], self.data[self.i].replace(" ", "_")))
-                print('{} - https://en.wikipedia.org/wiki/{}'.format(self.data[self.i], self.data[self.i].replace(" ", "_")))
+                # print('{} - https://en.wikipedia.org/wiki/{}'.format(self.data[self.i], self.data[self.i].replace(" ", "_")))
         else:
             raise StopIteration
 
